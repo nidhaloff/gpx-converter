@@ -21,7 +21,7 @@ setup(
     author_email='nidhalbacc@gmail.com',
     python_requires='>=3.5',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: Alpha',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
@@ -46,6 +46,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/nidhaloff/gpx_converter',
-    version='0.1.1',
+    version='0.1.2',
     zip_safe=False,
 )
