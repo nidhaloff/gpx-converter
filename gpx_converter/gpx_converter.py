@@ -173,10 +173,9 @@ class Converter(object):
         else:
             kv = np.concatenate(([0]*degree, np.arange(count-degree+1), [count-degree]*degree))
 
-
         # Calculate query range
         u = np.linspace(periodic,(count-degree),n)
 
-
         # Calculate result
         return np.array(si.splev(u, (kv,cv.T,degree))).T
+

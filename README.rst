@@ -16,7 +16,7 @@ gpx_converter
 
 
 
-Python package for manipulating gpx files and easily convert gpx to other different formats
+Python package for manipulating gpx files and easily convert gpx to other different formats.
 
 
 * Free software: MIT license

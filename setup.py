@@ -10,7 +10,7 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = [ ]
+requirements = []
 
 setup_requirements = ['pytest-runner', ]
 
@@ -31,7 +31,7 @@ setup(
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
     ],
-    description="Python Boilerplate contains all the boilerplate you need to create a Python package.",
+    description="Python package for manipulating gpx files and easily convert gpx to other different formats.",
     entry_points={
         'console_scripts': [
             'gpx_converter=gpx_converter.cli:main',
