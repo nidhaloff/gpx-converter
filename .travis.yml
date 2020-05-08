@@ -20,9 +20,9 @@ script: tox
 deploy:
   provider: pypi
   distributions: sdist bdist_wheel
-  user: nidhaloff
+  user: "__token__"
   password:
-    secure: PLEASE_REPLACE_ME
+    secure:
   on:
     tags: true
     repo: nidhaloff/gpx_converter

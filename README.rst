@@ -16,7 +16,7 @@ gpx_converter
 
 
 
-Python Boilerplate contains all the boilerplate you need to create a Python package.
+Python package for manipulating gpx files and easily convert gpx to other different formats
 
 
 * Free software: MIT license
@@ -26,12 +26,9 @@ Python Boilerplate contains all the boilerplate you need to create a Python pack
 Features
 --------
 
-* TODO
+- Convert gpx files to other formats such as CSV, arrays and Dataframes
+- Convert csv files to gpx
+- Apply interpolation on the gpx data
 
 Credits
 -------
-
-This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
-
-.. _Cookiecutter: https://github.com/audreyr/cookiecutter
-.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
