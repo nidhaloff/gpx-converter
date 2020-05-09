@@ -22,6 +22,15 @@ Python package for manipulating gpx files and easily convert gpx to other differ
 * Free software: MIT license
 * Documentation: https://gpx-converter.readthedocs.io.
 
+Motivation
+----------
+
+I decided to create this project because I had gpx data that I needed to manipulate. I searched for a python
+package for this but I did not find what I was looking for, therefore I created the gpx-converter package
+to make gpx files manipulation very easy. Furthermore, the package contains methods for applying interpolation
+on the gpx data. This feature was very helpful for me since I also needed to interpolate the gpx data and
+convert it to csv.
+Feel free to contribute or to give me feedback anytime :)
 
 Features
 --------
@@ -30,5 +39,15 @@ Features
 - Convert csv files to gpx
 - Apply interpolation on the gpx data
 
-Credits
--------
+Simple Usage
+------------
+    from gpx_converter.gpx_converter import Converter
+
+    # convert gpx to a csv file
+    Converter(input_file=your_input_file).gpx_to_csv(output_file=your_output_file)
+
+    # convert gpx to a pandas dataframe
+    df = Converter(input_file=your_input_file).gpx_to_pandas_dataframe()
+
+    # convert csv to gpx
+    Converter(input_file=your_input_file).csv_to_gpx(output_file=your_output_file)
