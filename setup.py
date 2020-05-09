@@ -21,8 +21,8 @@ setup(
     author_email='nidhalbacc@gmail.com',
     python_requires='>=3.5',
     classifiers=[
-        'Development Status :: Beta',
-        # 'Development Status :: 4 - Beta',
+        # 'Development Status :: Beta',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Natural Language :: English',
