@@ -225,3 +225,5 @@ class Converter(object):
         # Calculate result
         return np.array(si.splev(u, (kv,cv.T,degree))).T
 
+    def __repr__(self):
+        return "class converter that contains all conversion methods."
