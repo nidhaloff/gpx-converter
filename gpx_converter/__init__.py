@@ -1,2 +1,2 @@
-from base import *
+from gpx_converter.base import *
 
