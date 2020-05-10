@@ -95,6 +95,28 @@ class Converter(object):
 
         df.to_excel(output_file, index=False)
 
+    def gpx_to_json(self, lats_keyname="latitude", longs_keyname="longitudes", output_file=None):
+        """
+        convert a gpx file to json
+        lats_keyname: name of the key which will hold all latitude values
+        longs_keyname: name of the key which will hold all longitude values
+        output_file: output file where the csv file will be saved
+        """
+        if self.input_extension != ".gpx":
+            raise TypeError(f"input file must be a GPX file")
+
+        if not output_file:
+            raise Exception("you need to provide an output file!")
+
+        output_extension = os.path.splitext(output_file)[1]
+        if output_extension != ".json":
+            raise TypeError(f"output file must be a json file ")
+
+        df = self.gpx_to_pandas_dataframe(lats_colname=lats_keyname,
+                                          longs_colname=longs_keyname)
+
+        df.to_json(output_file)
+
     @staticmethod
     def __dataframe_to_gpx(input_df, lats_colname='latitude', longs_colname='longitude', output_file=None):
         """
