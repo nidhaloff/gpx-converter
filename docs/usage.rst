@@ -4,7 +4,7 @@ Usage
 
 To use gpx_converter in a project::
 
-    from gpx_converter.gpx_converter import Converter
+    from gpx_converter import Converter
 
     # convert gpx to a csv file
     Converter(input_file=your_input_file).gpx_to_csv(output_file=your_output_file)

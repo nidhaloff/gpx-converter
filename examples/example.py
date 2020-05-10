@@ -1,4 +1,4 @@
-from gpx_converter.gpx_converter import Converter
+from gpx_converter import Converter
 
 # convert gpx to a csv file
 Converter(input_file='test_data/test1.gpx').gpx_to_csv(output_file='converted_to_csv.csv')
