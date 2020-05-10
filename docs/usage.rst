@@ -38,15 +38,6 @@ Usage
     # convert multiple csv files to gpx (notice to use it as a static method)
     Converter.convert_multi_csv_to_gpx(dirpath='test_data/')
 
-or usage from terminal:
-
-.. code-block:: console
-
-        $ python gpx_to_csv.py --input_file your-input-file --output_file your-output-file
-
-        # example:
-        $ python gpx_to_csv.py --input_file '../examples/test_data/test1.gpx' --output_file '../examples/test_data/converted_new.csv'
-
 
 
 
