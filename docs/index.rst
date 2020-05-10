@@ -1,5 +1,5 @@
 Welcome to gpx_converter's documentation!
-======================================
+==========================================
 
 .. toctree::
    :maxdepth: 2
