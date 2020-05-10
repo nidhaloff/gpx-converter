@@ -3,14 +3,19 @@
 """The setup script."""
 
 from setuptools import setup, find_packages, Extension
+import os
+thelibFolder = os.path.dirname(os.path.realpath(__file__))
+requirementPath = thelibFolder + '/requirements_dev.txt'
+requirements = [] # Examples: ["gunicorn", "docutils>=0.3", "lxml==0.5a7"]
+if os.path.isfile(requirementPath):
+    with open(requirementPath) as f:
+        requirements = f.read().splitlines()
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
 
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
-
-requirements = []
 
 setup_requirements = ['pytest-runner', ]
 
@@ -39,7 +44,6 @@ setup(
     install_requires=requirements,
     license="MIT license",
     long_description=readme,
-    #long_description_content_type='text/rst',
     include_package_data=True,
     keywords='gpx_converter',
     name='gpx_converter',
