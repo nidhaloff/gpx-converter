@@ -3,13 +3,15 @@
 """The setup script."""
 
 from setuptools import setup, find_packages, Extension
-import os
-thelibFolder = os.path.dirname(os.path.realpath(__file__))
-requirementPath = thelibFolder + '/requirements_dev.txt'
-requirements = [] # Examples: ["gunicorn", "docutils>=0.3", "lxml==0.5a7"]
-if os.path.isfile(requirementPath):
-    with open(requirementPath) as f:
-        requirements = f.read().splitlines()
+
+
+requirements = [
+    "gpxpy",
+    "pandas",
+    "numpy",
+    "scipy"
+]  # Examples: ["gunicorn", "docutils>=0.3", "lxml==0.5a7"]
+
 
 with open('README.rst') as readme_file:
     readme = readme_file.read()
@@ -52,6 +54,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/nidhaloff/gpx_converter',
-    version='1.2',
+    version='1.4',
     zip_safe=False,
 )
