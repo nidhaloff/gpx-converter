@@ -39,6 +39,8 @@ Features
 - Convert csv files to gpx
 - Apply interpolation on the gpx data
 
+How to use
+------------
 
 .. include:: ./docs/installation.rst
 .. include:: ./docs/usage.rst
