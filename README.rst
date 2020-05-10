@@ -35,14 +35,10 @@ Feel free to contribute or to give me feedback anytime :)
 Features
 --------
 
-- Convert gpx files to other formats such as csv, dataframes and excel
+- Convert gpx files to other formats such as csv, dataframe, excel and json
 - Convert csv files to gpx
 - Apply interpolation on the gpx data
 
-Simple Usage
-------------
 
-
-                from gpx_converter import Converter
-                Converter(input_file=your_input_file).gpx_to_csv(output_file=your_output_file)
-
+.. include:: ./docs/installation.rst
+.. include:: ./docs/usage.rst
