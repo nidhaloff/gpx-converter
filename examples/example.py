@@ -5,8 +5,7 @@ from gpx_converter import Converter
 
 # convert gpx to a pandas dataframe
 res = Converter(input_file='test_data/test1.gpx').gpx_to_pandas_dataframe()
-print(res.shape)
-exit()
+
 # convert csv to gpx
 Converter(input_file='test_data/test1.csv').csv_to_gpx(lats_colname='latitudes',
                                                        longs_colname='longitudes',

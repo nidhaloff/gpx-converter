@@ -19,10 +19,12 @@
 #
 import os
 import sys
+
 sys.path.insert(0, os.path.abspath('..'))
-#sys.path.append(os.path.join(os.path.dirname(__name__), '..'))
+# sys.path.append(os.path.join(os.path.dirname(__name__), '..'))
 
 import gpx_converter
+
 # -- General configuration ---------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -77,7 +79,6 @@ pygments_style = 'sphinx'
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 todo_include_todos = False
 
-
 # -- Options for HTML output -------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
@@ -96,12 +97,10 @@ html_theme = 'alabaster'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-
 # -- Options for HTMLHelp output ---------------------------------------
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'gpx_converterdoc'
-
 
 # -- Options for LaTeX output ------------------------------------------
 
@@ -132,7 +131,6 @@ latex_documents = [
      'Nidhal Baccouri', 'manual'),
 ]
 
-
 # -- Options for manual page output ------------------------------------
 
 # One entry per manual page. List of tuples
@@ -142,7 +140,6 @@ man_pages = [
      'gpx_converter Documentation',
      [author], 1)
 ]
-
 
 # -- Options for Texinfo output ----------------------------------------
 
@@ -157,6 +154,3 @@ texinfo_documents = [
      'One line description of project.',
      'Miscellaneous'),
 ]
-
-
-
