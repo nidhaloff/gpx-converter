@@ -13,11 +13,7 @@ gpx_converter
         :target: https://gpx-converter.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-
-
-
 Python package for manipulating gpx files and easily convert gpx to other different formats.
-
 
 * Free software: MIT license
 * Documentation: https://gpx-converter.readthedocs.io.
@@ -40,43 +36,65 @@ Features
 - Apply interpolation on the gpx data
 
 Installation
--------------
-.. code-block:: python
-    pip install gpx-converter
+------------
 
-How to use
+.. code-block:: console
+
+    $ pip install gpx_converter
+
+
+Quick Usage
 -----------
+
 .. code-block:: python
 
-    """
-    the package is straightforward to use by importing the Converter parent class that contains all
-    conversion methods or you can simply use it from terminal.
-
-    below are code examples but it does not cover all use cases. Therefore, it would be helpful to take
-    a look in the examples folder for more.
-
-    Conversion methods:
-    - gpx_to_csv
-    - gpx_to_pandas_dataframe
-    - gpx_to_excel
-    - gpx_to_json
-    - csv_to_gpx
-    - convert_multi_csv_to_gpx
-
-    """
     from gpx_converter import Converter
 
-    # convert gpx to csv
+- Convert from gpx to csv:
+
+.. code-block:: python
+
     Converter(input_file=your_input_file).gpx_to_csv(output_file=your_output_file)
 
-    # convert gpx to a pandas dataframe
+- Convert from gpx to excel sheets:
+
+.. code-block:: python
+
+    Converter(input_file=your_input_file).gpx_to_excel(output_file=your_output_file)
+
+- Convert from gpx to json:
+
+.. code-block:: python
+
+    Converter(input_file=your_input_file).gpx_to_json(output_file=your_output_file)
+
+- Convert gpx file to dataframe:
+
+.. code-block:: python
+
     df = Converter(input_file=your_input_file).gpx_to_pandas_dataframe()
 
-    # convert csv to gpx
+- Likewise you can convert the other way around -> from csv to gpx
+
+.. code-block:: python
+
     Converter(input_file=your_input_file).csv_to_gpx(lats_colname=column_name_of_latitudes,
                                                      longs_colname=column_name_of_longitudes,
                                                      output_file=your_output_file)
 
-    # convert multiple csv files to gpx (notice to use it as a static method)
-    Converter.convert_multi_csv_to_gpx(dirpath='test_data/')
+- Automate the conversion of multiple csv file to gpx:
 
+.. code-block:: python
+
+    Converter.convert_multi_csv_to_gpx(dirpath='your_directory/')
+
+- Apply spline interpolation on gpx file:
+
+.. code-block:: python
+
+    interpolated_coordinates = Converter.spline_interpolation(cv=your_array_of_control_vertices)
+
+
+Contributions
+--------------
+Please contribute to the project and feel free to give me feedback anytime or just write me up if you find the package useful.

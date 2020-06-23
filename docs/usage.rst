@@ -5,23 +5,6 @@ Usage
 ======
 
 .. code-block:: python
-
-    """
-    the package is straightforward to use by importing the Converter parent class that contains all
-    conversion methods or you can simply use it from terminal.
-
-    below are code examples but it does not cover all use cases. Therefore, it would be helpful to take
-    a look in the examples folder for more.
-
-    Conversion methods:
-    - gpx_to_csv
-    - gpx_to_pandas_dataframe
-    - gpx_to_excel
-    - gpx_to_json
-    - csv_to_gpx
-    - convert_multi_csv_to_gpx
-
-    """
     from gpx_converter import Converter
 
     # convert gpx to csv
@@ -37,7 +20,3 @@ Usage
 
     # convert multiple csv files to gpx (notice to use it as a static method)
     Converter.convert_multi_csv_to_gpx(dirpath='test_data/')
-
-
-
-

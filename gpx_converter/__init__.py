@@ -195,7 +195,7 @@ class Converter(object):
     def spline_interpolation(cv, n=100, degree=3, periodic=False):
         """ Calculate n samples on a bspline
 
-            cv :      Array ov control vertices
+            cv :      Array of control vertices
             n  :      Number of samples to return
             degree:   Curve degree
             periodic: True - Curve is closed
