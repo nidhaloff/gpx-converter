@@ -39,6 +39,11 @@ Features
 - Convert csv files to gpx
 - Apply interpolation on the gpx data
 
+Installation
+-------------
+.. code-block:: python
+    pip install gpx-converter
+
 How to use
 -----------
 .. code-block:: python

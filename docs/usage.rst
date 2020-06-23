@@ -1,8 +1,8 @@
 .. highlight:: shell
 
-=====
+======
 Usage
-=====
+======
 
 .. code-block:: python
 
