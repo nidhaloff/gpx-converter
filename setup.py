@@ -11,7 +11,7 @@ requirements = [
     "pandas >= 1.0.3",
     "scipy >= 1.4.1",
     "openpyxl==3.0.3"
-]  # Examples: ["gunicorn", "docutils>=0.3", "lxml==0.5a7"]
+]
 
 
 with open('README.rst') as readme_file:
@@ -55,6 +55,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/nidhaloff/gpx_converter',
-    version='1.6.1',
+    version='1.6.2',
     zip_safe=False,
 )
