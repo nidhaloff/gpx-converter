@@ -73,6 +73,7 @@ class Converter(object):
                                           longs_colname=longs_colname)
 
         df.to_csv(output_file, index=False)
+        return True
 
     def gpx_to_excel(self, lats_colname="latitude", longs_colname="longitudes", output_file=None):
         """
@@ -95,6 +96,7 @@ class Converter(object):
                                           longs_colname=longs_colname)
 
         df.to_excel(output_file, index=False)
+        return True
 
     def gpx_to_json(self, lats_keyname="latitude", longs_keyname="longitudes", output_file=None):
         """
@@ -117,6 +119,7 @@ class Converter(object):
                                           longs_colname=longs_keyname)
 
         df.to_json(output_file)
+        return True
 
     @staticmethod
     def __dataframe_to_gpx(input_df, lats_colname='latitude', longs_colname='longitude', output_file=None):
@@ -171,6 +174,7 @@ class Converter(object):
                                 lats_colname=lats_colname,
                                 longs_colname=longs_colname,
                                 output_file=output_file)
+        return True
 
     @staticmethod
     def convert_multi_csv_to_gpx(dirpath):
