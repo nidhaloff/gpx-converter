@@ -6,10 +6,10 @@ from setuptools import setup, find_packages, Extension
 
 
 requirements = [
-    "gpxpy",
-    "pandas",
-    "numpy",
-    "scipy"
+    "gpxpy >= 1.4.0",
+    "numpy >= 1.18.1",
+    "pandas >= 1.0.3",
+    "scipy >= 1.4.1"
 ]  # Examples: ["gunicorn", "docutils>=0.3", "lxml==0.5a7"]
 
 
