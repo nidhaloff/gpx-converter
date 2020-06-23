@@ -24,7 +24,7 @@ def test_gpx_to_csv(converter):
 
 
 def test_gpx_to_json(converter):
-    result = converter.gpx_to_csv(output_file='examples/test_data/converted.json')
+    result = converter.gpx_to_json(output_file='examples/test_data/converted.json')
     assert result is not None
 
 
