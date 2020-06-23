@@ -19,15 +19,15 @@ def test_gpx_to_dataframe(converter):
 
 
 def test_gpx_to_csv(converter):
-    result = converter.gpx_to_csv(output_file='test_data/converted.csv')
+    result = converter.gpx_to_csv(output_file='examples/test_data/converted.csv')
     assert result is not None
 
 
 def test_gpx_to_json(converter):
-    result = converter.gpx_to_csv(output_file='test_data/converted.json')
+    result = converter.gpx_to_csv(output_file='examples/test_data/converted.json')
     assert result is not None
 
 
 def test_gpx_to_excel(converter):
-    result = converter.gpx_to_csv(output_file='test_data/converted.xlsx')
+    result = converter.gpx_to_csv(output_file='examples/test_data/converted.xlsx')
     assert result is not None
