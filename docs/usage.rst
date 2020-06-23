@@ -5,18 +5,50 @@ Usage
 ======
 
 .. code-block:: python
+
     from gpx_converter import Converter
 
-    # convert gpx to csv
+- Convert from gpx to csv:
+
+.. code-block:: python
+
     Converter(input_file=your_input_file).gpx_to_csv(output_file=your_output_file)
 
-    # convert gpx to a pandas dataframe
+- Convert from gpx to excel sheets:
+
+.. code-block:: python
+
+    Converter(input_file=your_input_file).gpx_to_excel(output_file=your_output_file)
+
+- Convert from gpx to json:
+
+.. code-block:: python
+
+    Converter(input_file=your_input_file).gpx_to_json(output_file=your_output_file)
+
+- Convert gpx file to dataframe:
+
+.. code-block:: python
+
     df = Converter(input_file=your_input_file).gpx_to_pandas_dataframe()
 
-    # convert csv to gpx
+- Likewise you can convert the other way around -> from csv to gpx
+
+.. code-block:: python
+
     Converter(input_file=your_input_file).csv_to_gpx(lats_colname=column_name_of_latitudes,
                                                      longs_colname=column_name_of_longitudes,
                                                      output_file=your_output_file)
 
-    # convert multiple csv files to gpx (notice to use it as a static method)
-    Converter.convert_multi_csv_to_gpx(dirpath='test_data/')
+- Automate the conversion of multiple csv file to gpx:
+
+.. code-block:: python
+
+    Converter.convert_multi_csv_to_gpx(dirpath='your_directory/')
+
+- Apply spline interpolation on gpx file:
+
+.. code-block:: python
+
+    interpolated_coordinates = Converter.spline_interpolation(cv=your_array_of_control_vertices)
+
