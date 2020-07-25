@@ -52,6 +52,10 @@ class Converter(object):
         df = pd.DataFrame.from_dict({lats_colname: lats, longs_colname: longs})
         return df
 
+    def gpx_to_numpy_array(self):
+        df = self.gpx_to_pandas_dataframe()
+        return df.to_numpy()
+
     def gpx_to_csv(self, lats_colname="latitude", longs_colname="longitudes", output_file=None):
         """
         convert a gpx file to a csv
@@ -177,7 +181,7 @@ class Converter(object):
         return True
 
     @staticmethod
-    def convert_multi_csv_to_gpx(dirpath):
+    def convert_multi_csv_to_gpx(dirpath, lats_colname='latitudes', longs_colname='longitudes'):
         """
         convert multiple csv file from directory to gpx
         dirpath: directory path where the csv files are
@@ -187,8 +191,8 @@ class Converter(object):
             gpx_path = f.replace('csv', 'gpx')
             df = pd.read_csv(f)
             Converter.__dataframe_to_gpx(input_df=df,
-                                         lats_colname="latitudes",
-                                         longs_colname="longitudes",
+                                         lats_colname=lats_colname,
+                                         longs_colname=longs_colname,
                                          output_file=gpx_path)
 
     @staticmethod

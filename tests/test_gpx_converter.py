@@ -5,6 +5,7 @@
 import pytest
 from gpx_converter import Converter
 import pandas as pd
+import numpy as np
 
 
 @pytest.fixture
@@ -16,6 +17,12 @@ def test_gpx_to_dataframe(converter):
     result = converter.gpx_to_pandas_dataframe()
     assert result is not None
     assert isinstance(result, pd.DataFrame)
+
+
+def test_gpx_to_numpy_array(converter):
+    result = converter.gpx_to_numpy_array()
+    assert result is not None
+    assert isinstance(result, np.array)
 
 
 def test_gpx_to_csv(converter):
