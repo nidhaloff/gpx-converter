@@ -22,7 +22,7 @@ def test_gpx_to_dataframe(converter):
 def test_gpx_to_numpy_array(converter):
     result = converter.gpx_to_numpy_array()
     assert result is not None
-    assert isinstance(result, np.array)
+    assert isinstance(result, np.ndarray)
 
 
 def test_gpx_to_csv(converter):
