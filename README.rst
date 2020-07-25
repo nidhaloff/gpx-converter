@@ -31,7 +31,7 @@ Feel free to contribute or to give me feedback anytime :)
 Features
 --------
 
-- Convert gpx files to other formats such as csv, dataframe, excel and json
+- Convert gpx files to other formats such as csv, numpy arrays, dataframes, excel and json
 - Convert csv files to gpx
 - Apply interpolation on the gpx data
 
@@ -73,6 +73,13 @@ Quick Usage
 .. code-block:: python
 
     df = Converter(input_file=your_input_file).gpx_to_pandas_dataframe()
+
+- Convert gpx file to numpy array:
+
+.. code-block:: python
+
+    np_array = Converter(input_file=your_input_file).gpx_to_numpy_array()
+
 
 - Likewise you can convert the other way around -> from csv to gpx
 

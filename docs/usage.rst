@@ -1,4 +1,3 @@
-.. highlight:: shell
 
 ======
 Usage
@@ -31,6 +30,13 @@ Usage
 .. code-block:: python
 
     df = Converter(input_file=your_input_file).gpx_to_pandas_dataframe()
+
+- Convert gpx file to numpy array:
+
+.. code-block:: python
+
+    np_array = Converter(input_file=your_input_file).gpx_to_numpy_array()
+
 
 - Likewise you can convert the other way around -> from csv to gpx
 
