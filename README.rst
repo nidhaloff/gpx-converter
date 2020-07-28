@@ -35,6 +35,8 @@ gpx_converter
 
 
 
+GPX manipulation for humans
+----------------------------
 
 Python package for manipulating gpx files and easily convert gpx to other different formats.
 
