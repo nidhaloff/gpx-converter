@@ -12,6 +12,13 @@ gpx_converter
 .. image:: https://readthedocs.org/projects/gpx-converter/badge/?version=latest
         :target: https://gpx-converter.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
+.. image:: https://img.shields.io/pypi/wheel/gpx-converter
+        :alt: PyPI - Wheel
+.. image:: https://img.shields.io/pypi/dm/gpx-converter
+        :alt: PyPI - Downloads
+.. image:: https://img.shields.io/pypi/l/gpx-converter
+        :alt: PyPI - License
+.. image:: https://img.shields.io/twitter/url?url=https%3A%2F%2Ftwitter.com%2FNidhalBaccouri   :alt: Twitter URL
 
 Python package for manipulating gpx files and easily convert gpx to other different formats.
 
