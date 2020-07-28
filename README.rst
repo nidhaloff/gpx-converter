@@ -108,7 +108,11 @@ Quick Usage
 
     interpolated_coordinates = Converter.spline_interpolation(cv=your_array_of_control_vertices)
 
+Links
+-----
+Check this article to know more about gpx files and how to use the gpx-converter package.
+https://medium.com/p/57da00bd36fc/edit
 
 Contributions
 --------------
-Please contribute to the project and feel free to give me feedback anytime or just write me up if you find the package useful.
+Feel free to give me feedback anytime or contact me if you find the package useful.
