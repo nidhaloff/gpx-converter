@@ -43,6 +43,15 @@ Python package for manipulating gpx files and easily convert gpx to other differ
 * Free software: MIT license
 * Documentation: https://gpx-converter.readthedocs.io.
 
+When & Why
+----------
+- You need to convert GPX to other formats
+- You need to convert other formats like csv to GPX
+- You want to interpolate the GPX coordinates
+- High level of abstraction
+- Stable API
+- easy to use and to extend
+
 Motivation
 ----------
 
