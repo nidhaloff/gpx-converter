@@ -4,7 +4,6 @@
 import gpxpy
 import pandas as pd
 import numpy as np
-import scipy.interpolate as si
 import glob
 import os
 
@@ -27,7 +26,7 @@ class Converter(object):
             self.input_extension = os.path.splitext(input_file)[1]
             # print(self.extension)
 
-    def gpx_to_pandas_dataframe(self, lats_colname="latitudes", longs_colname="longitudes"):
+    def gpx_to_dataframe(self, lats_colname="latitudes", longs_colname="longitudes"):
         """
         convert gpx file to a pandas dataframe
         lats_colname: name of the latitudes column
@@ -126,7 +125,7 @@ class Converter(object):
         return True
 
     @staticmethod
-    def __dataframe_to_gpx(input_df, lats_colname='latitude', longs_colname='longitude', output_file=None):
+    def dataframe_to_gpx(input_df, lats_colname='latitude', longs_colname='longitude', output_file=None):
         """
         convert pandas dataframe to gpx
         input_df: pandas dataframe
@@ -174,7 +173,47 @@ class Converter(object):
             raise TypeError(f"input file must be a GPX file")
 
         df = pd.read_csv(self.input_file)
-        self.__dataframe_to_gpx(input_df=df,
+        self.dataframe_to_gpx(input_df=df,
+                              lats_colname=lats_colname,
+                              longs_colname=longs_colname,
+                              output_file=output_file)
+        return True
+
+    def excel_to_gpx(self, lats_colname='latitudes', longs_colname='longitudes', output_file=None):
+        """
+           convert csv file to gpx
+           lats_colname: name of the latitudes column
+           longs_colname: name of the longitudes column
+           output_file: path of the output file
+        """
+        if not output_file:
+            raise Exception("you need to provide an output file!")
+
+        if self.input_extension != ".xlsx":
+            raise TypeError(f"input file must be a Excel file")
+
+        df = pd.read_excel(self.input_file)
+        self.dataframe_to_gpx(input_df=df,
+                                lats_colname=lats_colname,
+                                longs_colname=longs_colname,
+                                output_file=output_file)
+        return True
+
+    def json_to_gpx(self, lats_colname='latitudes', longs_colname='longitudes', output_file=None):
+        """
+           convert csv file to gpx
+           lats_colname: name of the latitudes column
+           longs_colname: name of the longitudes column
+           output_file: path of the output file
+        """
+        if not output_file:
+            raise Exception("you need to provide an output file!")
+
+        if self.input_extension != ".json":
+            raise TypeError(f"input file must be a json file")
+
+        df = pd.read_json(self.input_file)
+        self.dataframe_to_gpx(input_df=df,
                                 lats_colname=lats_colname,
                                 longs_colname=longs_colname,
                                 output_file=output_file)
@@ -190,7 +229,7 @@ class Converter(object):
         for f in all_files:
             gpx_path = f.replace('csv', 'gpx')
             df = pd.read_csv(f)
-            Converter.__dataframe_to_gpx(input_df=df,
+            Converter.dataframe_to_gpx(input_df=df,
                                          lats_colname=lats_colname,
                                          longs_colname=longs_colname,
                                          output_file=gpx_path)
@@ -207,6 +246,8 @@ class Converter(object):
         """
 
         # If periodic, extend the point array by count+degree+1
+        import scipy.interpolate as si
+
         cv = np.asarray(cv)
         count = len(cv)
 
@@ -232,7 +273,10 @@ class Converter(object):
         u = np.linspace(periodic,(count-degree),n)
 
         # Calculate result
-        return np.array(si.splev(u, (kv,cv.T,degree))).T
+        mat = si.splev(u, (kv,cv.T,degree))
+        return np.array(mat).T
 
     def __repr__(self):
         return "class converter that contains all conversion methods."
+
+

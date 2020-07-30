@@ -9,8 +9,6 @@ requirements = [
     "gpxpy >= 1.4.0",
     "numpy >= 1.18.1",
     "pandas >= 1.0.3",
-    "scipy >= 1.4.1",
-    "openpyxl==3.0.3"
 ]
 
 

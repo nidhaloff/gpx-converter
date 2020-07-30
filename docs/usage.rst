@@ -29,7 +29,7 @@ Usage
 
 .. code-block:: python
 
-    df = Converter(input_file=your_input_file).gpx_to_pandas_dataframe()
+    df = Converter(input_file=your_input_file).gpx_to_dataframe()
 
 - Convert gpx file to numpy array:
 
