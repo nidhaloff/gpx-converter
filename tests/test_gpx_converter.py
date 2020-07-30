@@ -14,7 +14,7 @@ def converter():
 
 
 def test_gpx_to_dataframe(converter):
-    result = converter.gpx_to_pandas_dataframe()
+    result = converter.gpx_to_dataframe()
     assert result is not None
     assert isinstance(result, pd.DataFrame)
 

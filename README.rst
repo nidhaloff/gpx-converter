@@ -84,6 +84,15 @@ Quick Usage
 
     from gpx_converter import Converter
 
+**Just read the gpx to dictionary**
+
+.. code-block:: python
+
+    dic = Converter(input_file='your_input.gpx').gpx_to_dictionary(latitude_key='latitude', longitude_key='longitude')
+    # now you have a dictionary and can access the longitudes and latitudes values from the keys
+    latitudes = dic['latitude']
+    longitudes = dic['longitude']
+
 **Convert GPX to other formats**
 
 - Convert from gpx to csv:
@@ -134,7 +143,6 @@ Quick Usage
     Converter(input_file='your_input.xlsx').excel_to_gpx(lats_colname=column_name_of_latitudes,
                                                      longs_colname=column_name_of_longitudes,
                                                      output_file='your_input.gpx')
-                                                     - csv to gpx
 
 - dataframe to gpx (notice that the method is static)
 
