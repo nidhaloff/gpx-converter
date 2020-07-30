@@ -1,4 +1,4 @@
-from .main import Converter
+from .base import Converter
 
 __author__ = """Nidhal Baccouri"""
 __email__ = 'nidhalbacc@gmail.com'
