@@ -134,7 +134,7 @@ Quick Usage
 
     Converter(input_file='your_input.csv').csv_to_gpx(lats_colname='column_name_of_latitudes',
                                                      longs_colname='column_name_of_longitudes',
-                                                     output_file='your_input.gpx')
+                                                     output_file='your_output.gpx')
 
 - excel to gpx
 
@@ -142,7 +142,7 @@ Quick Usage
 
     Converter(input_file='your_input.xlsx').excel_to_gpx(lats_colname='column_name_of_latitudes',
                                                      longs_colname='column_name_of_longitudes',
-                                                     output_file='your_input.gpx')
+                                                     output_file='your_output.gpx')
 
 - dataframe to gpx (notice that the method is static)
 
@@ -151,7 +151,7 @@ Quick Usage
     Converter.dataframe_to_gpx(input_df=your_df,
                                lats_colname='column_name_of_latitudes',
                                longs_colname='column_name_of_longitudes',
-                               output_file='your_input.gpx')
+                               output_file='your_output.gpx')
 
 - json to gpx
 
@@ -160,7 +160,7 @@ Quick Usage
     Converter(input_file='your_input.json').json_to_gpx(input_df=your_df,
                                                        lats_colname='column_name_of_latitudes',
                                                        longs_colname='column_name_of_longitudes',
-                                                       output_file='your_input.gpx')
+                                                       output_file='your_output.gpx')
 
 
 - Automate the conversion of multiple csv file to gpx:
