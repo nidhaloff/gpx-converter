@@ -5,7 +5,11 @@ from gpx_converter.main import Converter
 
 
 def run(args):
-    Converter(args.input_file).gpx_to_csv(output_file=args.output_file)
+    converter = Converter(args.input_file)
+    if args.function == 'gpx_to_csv':
+        converter.gpx_to_csv(output_file=args.output_file)
+    elif args.function == 'csv_to_gpx':
+        converter.csv_to_gpx(args.output_file)
 
 
 def main():
@@ -21,10 +25,15 @@ def main():
     parser.set_defaults(func=run)
     args = parser.parse_args()
     args.func(args)
-    print("Arguments: " + str(args))
-    print("Replace this message by putting your code into "
-          "gpx_converter.cli.main")
-    run(args)
+
+    # print("Arguments: " + str(args))
+    # print("Replace this message by putting your code into "
+    #       "gpx_converter.cli.main")
+    try:
+        run(args)
+        print(f"conversion from {args.function} was done successfully")
+    except Exception as e:
+        print(e.args)
 
 
 if __name__ == "__main__":
