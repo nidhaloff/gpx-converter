@@ -132,16 +132,16 @@ Quick Usage
 
 .. code-block:: python
 
-    Converter(input_file='your_input.csv').csv_to_gpx(lats_colname=column_name_of_latitudes,
-                                                     longs_colname=column_name_of_longitudes,
+    Converter(input_file='your_input.csv').csv_to_gpx(lats_colname='column_name_of_latitudes',
+                                                     longs_colname='column_name_of_longitudes',
                                                      output_file='your_input.gpx')
 
 - excel to gpx
 
 .. code-block:: python
 
-    Converter(input_file='your_input.xlsx').excel_to_gpx(lats_colname=column_name_of_latitudes,
-                                                     longs_colname=column_name_of_longitudes,
+    Converter(input_file='your_input.xlsx').excel_to_gpx(lats_colname='column_name_of_latitudes',
+                                                     longs_colname='column_name_of_longitudes',
                                                      output_file='your_input.gpx')
 
 - dataframe to gpx (notice that the method is static)
@@ -149,8 +149,8 @@ Quick Usage
 .. code-block:: python
 
     Converter.dataframe_to_gpx(input_df=your_df,
-                               lats_colname=column_name_of_latitudes,
-                               longs_colname=column_name_of_longitudes,
+                               lats_colname='column_name_of_latitudes',
+                               longs_colname='column_name_of_longitudes',
                                output_file='your_input.gpx')
 
 - json to gpx
@@ -158,8 +158,8 @@ Quick Usage
 .. code-block:: python
 
     Converter(input_file='your_input.json').json_to_gpx(input_df=your_df,
-                                                       lats_colname=column_name_of_latitudes,
-                                                       longs_colname=column_name_of_longitudes,
+                                                       lats_colname='column_name_of_latitudes',
+                                                       longs_colname='column_name_of_longitudes',
                                                        output_file='your_input.gpx')
 
 
