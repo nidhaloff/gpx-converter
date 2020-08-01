@@ -175,6 +175,26 @@ Quick Usage
 
     interpolated_coordinates = Converter.spline_interpolation(cv=your_array_of_control_vertices)
 
+Usage from terminal
+--------------------
+
+Alternatively you can use the gpx_converter directly from terminal.
+You just need to pass the function, input file and output file as arguments.
+
+- function: the conversion method you want to use. For example "gpx_to_csv"
+- input file: path to your input file
+- output file: path to your output file
+
+.. code-block:: console
+
+    $ gpx_converter --function "gpx_to_csv" --input_file "home/your_input.gpx" --output_file "home/your_output.csv"
+
+or maybe you prefer the short version
+
+.. code-block:: console
+
+    $ gpx_converter -func "gpx_to_csv" -in "home/your_input.gpx" -out "home/your_output.csv"
+
 Links
 -----
 Check this article to know more about gpx files and how to use the gpx-converter package.
@@ -182,4 +202,5 @@ https://medium.com/p/57da00bd36fc/edit
 
 Contributions
 --------------
-Feel free to give me feedback anytime or contact me if you find the package useful.
+Contributions are always welcome. Feel free to make a pull request.
+If you like the project or using it in daily life, consider giving me a feedback :)
