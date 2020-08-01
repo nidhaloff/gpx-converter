@@ -8,8 +8,17 @@ def run(args):
     converter = Converter(args.input_file)
     if args.function == 'gpx_to_csv':
         converter.gpx_to_csv(output_file=args.output_file)
+    elif args.function == 'gpx_to_excel':
+        converter.gpx_to_excel(output_file=args.output_file)
+    elif args.function == 'gpx_to_json':
+        converter.gpx_to_excel(output_file=args.output_file)
+
     elif args.function == 'csv_to_gpx':
         converter.csv_to_gpx(args.output_file)
+    elif args.function == 'excel_to_gpx':
+        converter.excel_to_gpx(output_file=args.output_file)
+    elif args.function == 'json_to_gpx':
+        converter.json_to_gpx(output_file=args.output_file)
 
 
 def main():
