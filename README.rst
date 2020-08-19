@@ -17,12 +17,11 @@ gpx_converter
         :target: https://pypi.python.org/pypi/gpx_converter
 
 .. image:: https://pepy.tech/badge/gpx_converter
-    :target: https://pepy.tech/project/gpx_converter
+        :target: https://pepy.tech/project/gpx_converter
 
 .. image:: https://pepy.tech/badge/gpx_converter/month
-    :target: https://pepy.tech/project/gpx_converter/month
+        :target: https://pepy.tech/project/gpx_converter/month
 
-        :target: https://pypi.python.org/pypi/gpx_converter
 .. image:: https://img.shields.io/pypi/l/gpx-converter
         :alt: PyPI - License
         :target: https://pypi.python.org/pypi/gpx_converter
