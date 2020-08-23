@@ -2,6 +2,14 @@
 gpx_converter
 =============
 
+.. image:: assets/icon.png
+    :width: 100
+    :align: center
+    :alt: gpx-converter-icon
+
+|
+
+
 
 .. image:: https://img.shields.io/pypi/v/gpx_converter.svg
         :target: https://pypi.python.org/pypi/gpx_converter
