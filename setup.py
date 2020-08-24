@@ -52,6 +52,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/nidhaloff/gpx_converter',
-    version='1.6.8',
+    version='1.6.9',
     zip_safe=False,
 )
