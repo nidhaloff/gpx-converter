@@ -211,5 +211,4 @@ https://medium.com/p/57da00bd36fc/edit
 
 Contributions
 --------------
-Contributions are always welcome. Feel free to make a pull request.
-If you like the project or using it in daily life, consider giving me a feedback :)
+Contributions are always welcome. Make sure you check the guidlines first https://gpx-converter.readthedocs.io/en/latest/contributing.html
