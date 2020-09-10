@@ -2,7 +2,7 @@
 gpx-converter
 =============
 
-.. image:: assets/icon.png
+.. image:: https://github.com/nidhaloff/gpx-converter/blob/master/assets/icon.png
     :width: 100
     :align: center
     :alt: gpx-converter-icon

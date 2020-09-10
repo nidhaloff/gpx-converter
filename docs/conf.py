@@ -25,6 +25,7 @@ import gpx_converter
 
 # -- General configuration ---------------------------------------------
 
+html_logo = "../assets/icon.png"
 # If your documentation needs a minimal Sphinx version, state it here.
 #
 # needs_sphinx = '1.0'
