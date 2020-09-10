@@ -1,5 +1,5 @@
 =============
-gpx_converter
+gpx-converter
 =============
 
 .. image:: assets/icon.png
@@ -15,7 +15,7 @@ gpx_converter
         :target: https://pypi.python.org/pypi/gpx-converter
 
 .. image:: https://img.shields.io/travis/nidhaloff/gpx-converter.svg
-        :target: https://travis-ci.com/nidhaloff/gpx_converter
+        :target: https://travis-ci.com/nidhaloff/gpx-converter
 
 .. image:: https://readthedocs.org/projects/gpx-converter/badge/?version=latest
         :target: https://gpx-converter.readthedocs.io/en/latest/?badge=latest
@@ -24,10 +24,10 @@ gpx_converter
         :alt: PyPI - Wheel
         :target: https://pypi.python.org/pypi/gpx-converter
 
-.. image:: https://pepy.tech/badge/gpx_converter
+.. image:: https://pepy.tech/badge/gpx-converter
         :target: https://pepy.tech/project/gpx-converter
 
-.. image:: https://pepy.tech/badge/gpx_converter/month
+.. image:: https://pepy.tech/badge/gpx-converter/month
         :target: https://pepy.tech/project/gpx-converter/month
 
 .. image:: https://img.shields.io/pypi/l/gpx-converter
@@ -83,7 +83,7 @@ Installation
 
 .. code-block:: console
 
-    $ pip install gpx_converter
+    $ pip install gpx-converter
 
 
 Quick Usage
