@@ -11,10 +11,10 @@ gpx_converter
 
 
 
-.. image:: https://img.shields.io/pypi/v/gpx_converter.svg
-        :target: https://pypi.python.org/pypi/gpx_converter
+.. image:: https://img.shields.io/pypi/v/gpx-converter.svg
+        :target: https://pypi.python.org/pypi/gpx-converter
 
-.. image:: https://img.shields.io/travis/nidhaloff/gpx_converter.svg
+.. image:: https://img.shields.io/travis/nidhaloff/gpx-converter.svg
         :target: https://travis-ci.com/nidhaloff/gpx_converter
 
 .. image:: https://readthedocs.org/projects/gpx-converter/badge/?version=latest
@@ -22,21 +22,21 @@ gpx_converter
         :alt: Documentation Status
 .. image:: https://img.shields.io/pypi/wheel/gpx-converter
         :alt: PyPI - Wheel
-        :target: https://pypi.python.org/pypi/gpx_converter
+        :target: https://pypi.python.org/pypi/gpx-converter
 
 .. image:: https://pepy.tech/badge/gpx_converter
-        :target: https://pepy.tech/project/gpx_converter
+        :target: https://pepy.tech/project/gpx-converter
 
 .. image:: https://pepy.tech/badge/gpx_converter/month
-        :target: https://pepy.tech/project/gpx_converter/month
+        :target: https://pepy.tech/project/gpx-converter/month
 
 .. image:: https://img.shields.io/pypi/l/gpx-converter
         :alt: PyPI - License
-        :target: https://pypi.python.org/pypi/gpx_converter
+        :target: https://pypi.python.org/pypi/gpx-converter
 
-.. image:: https://img.shields.io/github/last-commit/nidhaloff/gpx_converter
+.. image:: https://img.shields.io/github/last-commit/nidhaloff/gpx-converter
         :alt: GitHub last commit
-        :target: https://pypi.python.org/pypi/gpx_converter
+        :target: https://pypi.python.org/pypi/gpx-converter
 
 .. image:: https://img.shields.io/twitter/url?url=https%3A%2F%2Ftwitter.com%2FNidhalBaccouri
         :alt: Twitter URL
