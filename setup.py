@@ -2,7 +2,7 @@
 
 """The setup script."""
 
-from setuptools import setup, find_packages, Extension
+from setuptools import setup, find_packages
 
 
 requirements = [
@@ -30,6 +30,12 @@ setup(
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
+        'Topic :: Scientific/Engineering :: GIS',
+        'Topic :: Scientific/Engineering',
+        'Topic :: Software Development',
+        'Topic :: Scientific/Engineering :: Physics',
+        'Topic :: Education',
+        'Operating System :: OS Independent',
         'Natural Language :: English',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
@@ -45,13 +51,17 @@ setup(
     license="MIT license",
     long_description=readme + '\n\n' + history,
     include_package_data=True,
-    keywords='gpx_converter',
+    keywords=['gpx_converter',
+              'GPX', 'GPS', 'GSI', 'Global Positioning System', 'Positioning System',
+              'Position', 'GPS conversion', 'GPX conversion',
+              'convert gpx to csv', 'convert csv to gpx', 'convert gpx to json',
+              'convert gpx to array', 'convert json to gpx'],
     name='gpx_converter',
     packages=find_packages(include=['gpx_converter', 'gpx_converter.*']),
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/nidhaloff/gpx_converter',
-    version='1.7.1',
+    version='1.7.2',
     zip_safe=False,
 )
