@@ -37,8 +37,14 @@ class Converter(object):
                         longs.append(point.longitude)
                         times.append(point.time)
                         alts.append(point.elevation)
-
-        return {times_colname: times, lats_colname: lats, longs_colname: longs, alts_colname: alts}
+        if times[0] and alts[0]:
+            return {times_colname: times, lats_colname: lats, longs_colname: longs, alts_colname: alts}
+        elif times[0]:
+            return {times_colname: times, lats_colname: lats, longs_colname: longs}
+        elif alts[0]:
+            return {lats_colname: lats, longs_colname: longs, alts_colname: alts}
+        else:
+            return {lats_colname: lats, longs_colname: longs}
 
     def gpx_to_dictionary(self, latitude_key="latitude", longitude_key="longitude", time_key="time", altitude_key="altitude"):
         return self._gpx_to_dict(lats_colname=latitude_key, longs_colname=longitude_key, times_colname=time_key, alts_colname=altitude_key)
