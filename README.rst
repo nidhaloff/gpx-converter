@@ -27,16 +27,11 @@ gpx-converter
 .. image:: https://pepy.tech/badge/gpx-converter
         :target: https://pepy.tech/project/gpx-converter
 
-.. image:: https://pepy.tech/badge/gpx-converter/month
-        :target: https://pepy.tech/project/gpx-converter/month
 
 .. image:: https://img.shields.io/pypi/l/gpx-converter
         :alt: PyPI - License
         :target: https://pypi.python.org/pypi/gpx-converter
 
-.. image:: https://img.shields.io/github/last-commit/nidhaloff/gpx-converter
-        :alt: GitHub last commit
-        :target: https://pypi.python.org/pypi/gpx-converter
 
 .. image:: https://img.shields.io/twitter/url?url=https%3A%2F%2Ftwitter.com%2FNidhalBaccouri
         :alt: Twitter URL
