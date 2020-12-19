@@ -35,15 +35,13 @@ class Converter(object):
                     for point in segment.points:
                         lats.append(point.latitude)
                         longs.append(point.longitude)
-                        if point.time:
-                            times.append(point.time)
-                        if point.elevation:
-                            alts.append(point.elevation)
-        if times and alts:
+                        times.append(point.time)
+                        alts.append(point.elevation)
+        if any(times) and any(alts):
             return {times_colname: times, lats_colname: lats, longs_colname: longs, alts_colname: alts}
-        elif times:
+        elif any(times):
             return {times_colname: times, lats_colname: lats, longs_colname: longs}
-        elif alts:
+        elif any(alts):
             return {lats_colname: lats, longs_colname: longs, alts_colname: alts}
         else:
             return {lats_colname: lats, longs_colname: longs}
