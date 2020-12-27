@@ -78,7 +78,7 @@ Installation
 
 .. code-block:: console
 
-    $ pip install gpx-converter
+    $ pip install -U gpx-converter
 
 
 Quick Usage
