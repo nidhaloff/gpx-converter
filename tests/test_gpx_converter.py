@@ -10,7 +10,7 @@ import numpy as np
 
 @pytest.fixture
 def converter():
-    return Converter(input_file='examples/test_data/test1.gpx')
+    return Converter(input_file='examples/test_data/test_file.gpx')
 
 
 def test_gpx_to_dataframe(converter):
