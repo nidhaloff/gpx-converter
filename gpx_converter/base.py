@@ -19,10 +19,10 @@ class Converter(object):
             input_file_exists = os.path.exists(input_file_abs_path)
 
             if not input_file_exists:
-                raise TypeError(f"The file {input_file} does not exist.")
+                raise Exception(f"The file {input_file} does not exist.")
 
             self.input_file = input_file_abs_path
-            self.input_extension = os.path.splitext(input_file)[1]
+            self.input_extension = os.path.splitext(input_file)[1].lower()
             # print(self.extension)
 
     def _gpx_to_dict(self, lats_colname="latitude", longs_colname="longitude", times_colname="time", alts_colname="altitude"):
