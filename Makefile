@@ -65,6 +65,7 @@ coverage: ## check code coverage quickly with the default Python
 docs: ## generate Sphinx HTML documentation, including API docs
 	rm -f docs/gpx_converter.rst
 	rm -f docs/modules.rst
+	pip install -r requirements_dev.txt
 	sphinx-apidoc -o docs/ gpx_converter
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
