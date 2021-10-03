@@ -156,7 +156,7 @@ class Converter(object):
         return True
 
     @staticmethod
-    def dataframe_to_gpx(input_df, lats_colname='latitude', longs_colname='longitude', output_file=None):
+    def dataframe_to_gpx(input_df, lats_colname='latitude', longs_colname='longitude', times_colname=None, alts_colname=None, output_file=None):
         """
         convert pandas dataframe to gpx
         input_df: pandas dataframe
@@ -185,13 +185,15 @@ class Converter(object):
         # Create points:
         for idx in input_df.index:
             gpx_segment.points.append(gpxpy.gpx.GPXTrackPoint(input_df.loc[idx, lats_colname],
-                                                              input_df.loc[idx, longs_colname]))
+                                                              input_df.loc[idx, longs_colname],
+                                                              time=pd.Timestamp(input_df.loc[idx, times_colname]) if times_colname else None,
+                                                              elevation=input_df.loc[idx, alts_colname] if alts_colname else None))
 
         with open(output_file, 'w') as f:
             f.write(gpx.to_xml())
         return gpx.to_xml()
 
-    def csv_to_gpx(self, lats_colname='latitude', longs_colname='longitude', output_file=None):
+    def csv_to_gpx(self, lats_colname='latitude', longs_colname='longitude', times_colname=None, alts_colname=None, output_file=None):
         """
            convert csv file to gpx
            lats_colname: name of the latitudes column
@@ -208,10 +210,12 @@ class Converter(object):
         self.dataframe_to_gpx(input_df=df,
                               lats_colname=lats_colname,
                               longs_colname=longs_colname,
+                              times_colname=times_colname,
+                              alts_colname=alts_colname,
                               output_file=output_file)
         return True
 
-    def excel_to_gpx(self, lats_colname='latitude', longs_colname='longitude', output_file=None):
+    def excel_to_gpx(self, lats_colname='latitude', longs_colname='longitude', times_colname=None, alts_colname=None, output_file=None):
         """
            convert csv file to gpx
            lats_colname: name of the latitudes column
@@ -228,10 +232,12 @@ class Converter(object):
         self.dataframe_to_gpx(input_df=df,
                               lats_colname=lats_colname,
                               longs_colname=longs_colname,
+                              times_colname=times_colname,
+                              alts_colname=alts_colname,
                               output_file=output_file)
         return True
 
-    def json_to_gpx(self, lats_colname='latitude', longs_colname='longitude', output_file=None):
+    def json_to_gpx(self, lats_colname='latitude', longs_colname='longitude', times_colname=None, alts_colname=None, output_file=None):
         """
            convert csv file to gpx
            lats_colname: name of the latitudes column
@@ -248,11 +254,13 @@ class Converter(object):
         self.dataframe_to_gpx(input_df=df,
                               lats_colname=lats_colname,
                               longs_colname=longs_colname,
+                              times_colname=times_colname,
+                              alts_colname=alts_colname,
                               output_file=output_file)
         return True
 
     @staticmethod
-    def convert_multi_csv_to_gpx(dirpath, lats_colname='latitude', longs_colname='longitude'):
+    def convert_multi_csv_to_gpx(dirpath, lats_colname='latitude', longs_colname='longitude', times_colname=None, alts_colname=None):
         """
         convert multiple csv file from directory to gpx
         dirpath: directory path where the csv files are
@@ -264,6 +272,8 @@ class Converter(object):
             Converter.dataframe_to_gpx(input_df=df,
                                        lats_colname=lats_colname,
                                        longs_colname=longs_colname,
+                                       times_colname=times_colname,
+                                       alts_colname=alts_colname,
                                        output_file=gpx_path)
 
     @staticmethod
