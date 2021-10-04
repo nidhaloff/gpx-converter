@@ -123,7 +123,7 @@ class Converter(object):
                                    longs_colname=longs_colname,
                                    times_colname=times_colname,
                                    alts_colname=alts_colname)
-
+        df[times_colname] = df[times_colname].dt.tz_localize(None)
         df.to_excel(output_file, index=False)
         return True
 
@@ -151,7 +151,7 @@ class Converter(object):
                                    times_colname=times_keyname,
                                    alts_colname=alts_keyname)
 
-        df.to_json(output_file)
+        df.to_json(output_file,date_format='iso')
 
         return True
 
@@ -162,6 +162,8 @@ class Converter(object):
         input_df: pandas dataframe
         lats_colname: name of the latitudes column
         longs_colname: name of the longitudes column
+        times_colname: name of the time column
+        alts_colname: name of the altitudes column
         output_file: path of the output file
         """
         if not output_file:
@@ -195,16 +197,18 @@ class Converter(object):
 
     def csv_to_gpx(self, lats_colname='latitude', longs_colname='longitude', times_colname=None, alts_colname=None, output_file=None):
         """
-           convert csv file to gpx
-           lats_colname: name of the latitudes column
-           longs_colname: name of the longitudes column
-           output_file: path of the output file
+        convert csv file to gpx
+        lats_colname: name of the latitudes column
+        longs_colname: name of the longitudes column
+        times_colname: name of the time column
+        alts_colname: name of the altitudes column
+        output_file: path of the output file
         """
         if not output_file:
             raise Exception("you need to provide an output file!")
 
         if self.input_extension != ".csv":
-            raise TypeError(f"input file must be a GPX file")
+            raise TypeError(f"input file must be a CSV file")
 
         df = pd.read_csv(self.input_file)
         self.dataframe_to_gpx(input_df=df,
@@ -217,10 +221,12 @@ class Converter(object):
 
     def excel_to_gpx(self, lats_colname='latitude', longs_colname='longitude', times_colname=None, alts_colname=None, output_file=None):
         """
-           convert csv file to gpx
-           lats_colname: name of the latitudes column
-           longs_colname: name of the longitudes column
-           output_file: path of the output file
+        convert csv file to gpx
+        lats_colname: name of the latitudes column
+        longs_colname: name of the longitudes column
+        times_colname: name of the time column
+        alts_colname: name of the altitudes column
+        output_file: path of the output file
         """
         if not output_file:
             raise Exception("you need to provide an output file!")
@@ -239,10 +245,12 @@ class Converter(object):
 
     def json_to_gpx(self, lats_colname='latitude', longs_colname='longitude', times_colname=None, alts_colname=None, output_file=None):
         """
-           convert csv file to gpx
-           lats_colname: name of the latitudes column
-           longs_colname: name of the longitudes column
-           output_file: path of the output file
+        convert csv file to gpx
+        lats_colname: name of the latitudes column
+        longs_colname: name of the longitudes column
+        times_colname: name of the time column
+        alts_colname: name of the altitudes column
+        output_file: path of the output file
         """
         if not output_file:
             raise Exception("you need to provide an output file!")
@@ -264,6 +272,10 @@ class Converter(object):
         """
         convert multiple csv file from directory to gpx
         dirpath: directory path where the csv files are
+        lats_colname: name of the latitudes columns
+        longs_colname: name of the longitudes columns
+        times_colname: name of the time columns
+        alts_colname: name of the altitudes columns
         """
         all_files = glob.glob(dirpath + '/*.csv')
         for f in all_files:
