@@ -123,7 +123,8 @@ class Converter(object):
                                    longs_colname=longs_colname,
                                    times_colname=times_colname,
                                    alts_colname=alts_colname)
-        df[times_colname] = df[times_colname].dt.tz_localize(None)
+        if times_colname:
+            df[times_colname] = df[times_colname].dt.tz_localize(None)
         df.to_excel(output_file, index=False)
         return True
 
