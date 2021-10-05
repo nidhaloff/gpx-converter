@@ -88,6 +88,8 @@ def test_gpx_to_excel(converter):
     converter: gpx_converter.Converter
         The converter that is used to test this function
     """
+    result = converter.gpx_to_excel(times_colname=None,alts_colname=None,output_file='examples/test_data/converted.xlsx')
+    assert result is not None
     result = converter.gpx_to_excel(output_file='examples/test_data/converted.xlsx')
     assert result is not None
 
