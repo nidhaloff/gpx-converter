@@ -11,7 +11,7 @@ def run(args):
     elif args.function == 'gpx_to_excel':
         converter.gpx_to_excel(output_file=args.output_file)
     elif args.function == 'gpx_to_json':
-        converter.gpx_to_excel(output_file=args.output_file)
+        converter.gpx_to_json(output_file=args.output_file)
 
     elif args.function == 'csv_to_gpx':
         converter.csv_to_gpx(args.output_file)
