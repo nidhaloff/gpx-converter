@@ -37,8 +37,8 @@ def test_gpx_to_dictionary(converter):
     assert result is not None
     assert isinstance(result, dict)
     assert 2 <= len(result) <= 4
-    
-    
+
+
 def test_gpx_to_dataframe(converter):
     """
     Tests if the gpx_converter.Converter.gpx_to_dataframe function is working:
@@ -79,19 +79,6 @@ def test_gpx_to_csv(converter):
     result = converter.gpx_to_csv(output_file='examples/test_data/converted.csv')
     assert result is not None
 
-def test_gpx_to_excel(converter):
-    """
-    Tests if the gpx_converter.Converter.gpx_to_excel function is working:
-
-    Parameters
-    ----------
-    converter: gpx_converter.Converter
-        The converter that is used to test this function
-    """
-    result = converter.gpx_to_excel(times_colname=None,alts_colname=None,output_file='examples/test_data/converted.xlsx')
-    assert result is not None
-    result = converter.gpx_to_excel(output_file='examples/test_data/converted.xlsx')
-    assert result is not None
 
 def test_gpx_to_json(converter):
     """
@@ -105,6 +92,7 @@ def test_gpx_to_json(converter):
     result = converter.gpx_to_json(output_file='examples/test_data/converted.json')
     assert result is not None
 
+
 def test_csv_to_gpx(csv_converter):
     """
     Tests if the gpx_converter.Converter.csv_to_gpx function is working:
@@ -116,6 +104,7 @@ def test_csv_to_gpx(csv_converter):
     """
     result=csv_converter.csv_to_gpx(times_colname='time',alts_colname='altitude',output_file='examples/test_data/converted.gpx')
     assert result is not None
+
 
 def test_json_to_gpx(json_converter):
     """
@@ -129,17 +118,6 @@ def test_json_to_gpx(json_converter):
     result=json_converter.json_to_gpx(times_colname='time',alts_colname='altitude',output_file='examples/test_data/converted.gpx')
     assert result is not None
 
-def test_excel_to_gpx(excel_converter):
-    """
-    Tests if the gpx_converter.Converter.excel_to_gpx function is working:
-
-    Parameters
-    ----------
-    excel_converter: gpx_converter.Converter
-        The converter that is used to test this function
-    """
-    result=excel_converter.excel_to_gpx(times_colname='time',alts_colname='altitude',output_file='examples/test_data/converted.gpx')
-    assert result is not None
 
 def test_csv_back_conversion(csv_converter):
     """
@@ -155,6 +133,7 @@ def test_csv_back_conversion(csv_converter):
     assert result is not None
     assert back_result is not None
     assert pd.read_csv(csv_converter.input_file).equals(pd.read_csv('examples/test_data/converted.csv'))
+
 
 def test_json_back_conversion(json_converter):
     """
