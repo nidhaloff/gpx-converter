@@ -14,8 +14,8 @@ gpx-converter
 .. image:: https://img.shields.io/pypi/v/gpx-converter.svg
         :target: https://pypi.python.org/pypi/gpx-converter
 
-.. image:: https://img.shields.io/travis/nidhaloff/gpx_converter.svg
-        :target: https://travis-ci.com/nidhaloff/gpx_converter
+.. image:: https://img.shields.io/travis/nidhaloff/gpx-converter.svg
+        :target: https://travis-ci.com/nidhaloff/gpx-converter
 
 .. image:: https://readthedocs.org/projects/gpx-converter/badge/?version=latest
         :target: https://gpx-converter.readthedocs.io/en/latest/?badge=latest
