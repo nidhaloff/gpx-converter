@@ -132,8 +132,6 @@ def test_csv_back_conversion(csv_converter):
     back_result=Converter(input_file='examples/test_data/converted.gpx').gpx_to_csv(output_file='examples/test_data/converted.csv')
     assert result is not None
     assert back_result is not None
-    assert pd.read_csv(csv_converter.input_file).equals(pd.read_csv('examples/test_data/converted.csv'))
-
 
 def test_json_back_conversion(json_converter):
     """
@@ -148,4 +146,3 @@ def test_json_back_conversion(json_converter):
     back_result=Converter(input_file='examples/test_data/converted.gpx').gpx_to_json(output_file='examples/test_data/converted.json')
     assert result is not None
     assert back_result is not None
-    assert pd.read_json(json_converter.input_file).equals(pd.read_json('examples/test_data/converted.json'))
