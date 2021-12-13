@@ -24,9 +24,11 @@ class Converter(object):
             self.input_file = input_file_abs_path
             self.input_extension = os.path.splitext(input_file)[1].lower()
             # print(self.extension)
+    
 
-    def _gpx_to_dict(self, lats_colname="latitude", longs_colname="longitude", times_colname="time", alts_colname="altitude", sats_colname="satellites"):
-        longs, lats, times, alts, sats = [], [], [], [], []
+    def _gpx_to_dict(self, lats_colname="latitude", longs_colname="longitude", times_colname="time", alts_colname="altitude", sats_colname="satellites", export_extensions=True):
+        longs, lats, times, alts, sats, ext = [], [], [], [], [], []
+        ext_tags=[]
 
         with open(self.input_file, 'r') as gpxfile:
             gpx = gpxpy.parse(gpxfile)
@@ -38,20 +40,37 @@ class Converter(object):
                         times.append(point.time)
                         alts.append(point.elevation)
                         sats.append(point.satellites)
-        gpx_data = {times_colname: times, lats_colname: lats, longs_colname: longs, alts_colname: alts, sats_colname: sats}
-        if not any(times):
-            del gpx_data[times_colname]
-        if not any(alts):
-            del gpx_data[alts_colname]
-        if not any(sats):
-            del gpx_data[sats_colname]
+                        ext.append(point.extensions)
+                        if export_extensions == True:
+                            for extension in point.extensions:
+                                ext_tags+=[extension.tag]
 
+            gpx_data = {times_colname: times, lats_colname: lats, longs_colname: longs, alts_colname: alts, sats_colname: sats}
+            if export_extensions == True:
+                ext_tags=set(ext_tags)
+                extensions=dict((ext_tag, []) for ext_tag in ext_tags)
+                for track in gpx.tracks:
+                    for segment in track.segments:
+                        for point in segment.points:
+                            for ext_tag in ext_tags:
+                                extensions[ext_tag]+=[None]
+                            for extension in point.extensions:
+                                extensions[extension.tag][-1]=extension.text
+                gpx_data = {**gpx_data, **extensions}
+                                
+                            
+
+        #pd.read_xml(ext[1][1])
+        for column in gpx_data.copy().keys():
+            if not any(gpx_data[column]):
+                del gpx_data[column]
+        
         return gpx_data
 
-    def gpx_to_dictionary(self, latitude_key="latitude", longitude_key="longitude", time_key="time", altitude_key="altitude", satellites_key="satellites"):
-        return self._gpx_to_dict(lats_colname=latitude_key, longs_colname=longitude_key, times_colname=time_key, alts_colname=altitude_key, satellites_colname=satellites_key)
+    def gpx_to_dictionary(self, latitude_key="latitude", longitude_key="longitude", time_key="time", altitude_key="altitude", satellites_key="satellites",export_extensions=True):
+        return self._gpx_to_dict(lats_colname=latitude_key, longs_colname=longitude_key, times_colname=time_key, alts_colname=altitude_key, satellites_colname=satellites_key, export_extensions=export_extensions)
 
-    def gpx_to_dataframe(self, lats_colname="latitude", longs_colname="longitude", times_colname="time", alts_colname="altitude", sats_colname="satellites"):
+    def gpx_to_dataframe(self, lats_colname="latitude", longs_colname="longitude", times_colname="time", alts_colname="altitude", sats_colname="satellites",export_extensions=True):
         """
         convert gpx file to a pandas dataframe
         lats_colname: name of the latitudes column
@@ -70,14 +89,15 @@ class Converter(object):
                                                       longs_colname=longs_colname,
                                                       times_colname=times_colname,
                                                       alts_colname=alts_colname,
-                                                      sats_colname=sats_colname))
+                                                      sats_colname=sats_colname,
+                                                      export_extensions=export_extensions))
         return df
 
-    def gpx_to_numpy_array(self):
-        df = self.gpx_to_dataframe()
+    def gpx_to_numpy_array(self,export_extensions=True):
+        df = self.gpx_to_dataframe(export_extensions=export_extensions)
         return df.to_numpy()
 
-    def gpx_to_csv(self, lats_colname="latitude", longs_colname="longitude", times_colname="time", alts_colname="altitude", sats_colname="satellites", output_file=None):
+    def gpx_to_csv(self, lats_colname="latitude", longs_colname="longitude", times_colname="time", alts_colname="altitude", sats_colname="satellites", output_file=None, export_extensions=True):
         """
         convert a gpx file to a csv
         lats_colname: name of the latitudes column
@@ -106,7 +126,7 @@ class Converter(object):
         df.to_csv(output_file, index=False)
         return True
 
-    def gpx_to_excel(self, lats_colname="latitude", longs_colname="longitude", times_colname="time", alts_colname="altitude", output_file=None):
+    def gpx_to_excel(self, lats_colname="latitude", longs_colname="longitude", times_colname="time", alts_colname="altitude", output_file=None, export_extensions=True):
         """
         convert a gpx file to a excel
         lats_colname: name of the latitudes column
@@ -130,13 +150,14 @@ class Converter(object):
                                    longs_colname=longs_colname,
                                    times_colname=times_colname,
                                    alts_colname=alts_colname,
-                                   sats_colname=sats_colname)
+                                   sats_colname=sats_colname,
+                                   export_extensions=export_extensions)
         if times_colname:
             df[times_colname] = df[times_colname].dt.tz_localize(None)
         df.to_excel(output_file, index=False)
         return True
 
-    def gpx_to_json(self, lats_keyname="latitude", longs_keyname="longitude", times_keyname="time", alts_keyname="altitude", sats_keyname="satellites" ,output_file=None):
+    def gpx_to_json(self, lats_keyname="latitude", longs_keyname="longitude", times_keyname="time", alts_keyname="altitude", sats_keyname="satellites" ,output_file=None, export_extensions=True):
         """
         convert a gpx file to json
         lats_keyname: name of the key which will hold all latitude values
@@ -160,7 +181,8 @@ class Converter(object):
                                    longs_colname=longs_keyname,
                                    times_colname=times_keyname,
                                    alts_colname=alts_keyname,
-                                   sats_colname=sats_keyname)
+                                   sats_colname=sats_keyname,
+                                   export_extensions=export_extensions)
 
         df.to_json(output_file,date_format='iso')
 
@@ -273,7 +295,6 @@ class Converter(object):
 
         if self.input_extension != ".json":
             raise TypeError(f"input file must be a json file")
-
         df = pd.read_json(self.input_file)
         self.dataframe_to_gpx(input_df=df,
                               lats_colname=lats_colname,
@@ -285,7 +306,7 @@ class Converter(object):
         return True
 
     @staticmethod
-    def convert_multi_csv_to_gpx(dirpath, lats_colname='latitude', longs_colname='longitude', times_colname=None, alts_colname=None, sats_colname=None):
+    def convert_multi_csv_to_gpx(dirpath, lats_colname='latitude', longs_colname='longitude', times_colname=None, alts_colname=None, sats_colname=None, export_extensions=True):
         """
         convert multiple csv file from directory to gpx
         dirpath: directory path where the csv files are
