@@ -189,7 +189,17 @@ class Converter(object):
         return True
 
     @staticmethod
-    def dataframe_to_gpx(input_df, lats_colname='latitude', longs_colname='longitude', times_colname=None, alts_colname=None, sats_colname=None, output_file=None):
+    def dataframe_to_gpx(input_df, lats_colname='latitude', longs_colname='longitude', 
+                                                            times_colname=None, 
+                                                            alts_colname=None,
+                                                            speed_colname=None,
+                                                            symbol_colname=None,
+                                                            comment_colname=None,
+                                                            name_colname=None,
+                                                            horizontal_dilution_colname=None,
+                                                            vertical_dilution_colname=None,
+                                                            position_dilution_colname=None, 
+                                                            output_file=None):
         """
         convert pandas dataframe to gpx
         input_df: pandas dataframe
@@ -210,7 +220,7 @@ class Converter(object):
         import gpxpy.gpx
         gpx = gpxpy.gpx.GPX()
 
-        # Create first track in our GPX:
+        # Create first track in our GPX:(and half of export)
         gpx_track = gpxpy.gpx.GPXTrack()
         gpx.tracks.append(gpx_track)
 
@@ -223,13 +233,30 @@ class Converter(object):
             gpx_segment.points.append(gpxpy.gpx.GPXTrackPoint(input_df.loc[idx, lats_colname],
                                                               input_df.loc[idx, longs_colname],
                                                               time=pd.Timestamp(input_df.loc[idx, times_colname]) if times_colname else None,
-                                                              elevation=input_df.loc[idx, alts_colname] if alts_colname else None))
+                                                              elevation=input_df.loc[idx, alts_colname] if alts_colname else None,
+                                                              speed=input_df.loc[idx, speed_colname] if speed_colname else None,
+                                                              symbol=input_df.loc[idx, symbol_colname] if symbol_colname else None,
+                                                              comment=input_df.loc[idx, comment_colname] if comment_colname else None,
+                                                              name=input_df.loc[idx, name_colname] if name_colname else None,
+                                                              horizontal_dilution=input_df.loc[idx, horizontal_dilution_colname] if horizontal_dilution_colname else None,
+                                                              vertical_dilution=input_df.loc[idx, vertical_dilution_colname] if vertical_dilution_colname else None,
+                                                              position_dilution=input_df.loc[idx, position_dilution_colname] if position_dilution_colname else None))
 
         with open(output_file, 'w') as f:
             f.write(gpx.to_xml())
         return gpx.to_xml()
 
-    def csv_to_gpx(self, lats_colname='latitude', longs_colname='longitude', times_colname=None, alts_colname=None, sats_colname=None, output_file=None):
+    def csv_to_gpx(self, lats_colname='latitude', longs_colname='longitude',
+                                                times_colname=None, 
+                                                alts_colname=None,
+                                                speed_colname=None,
+                                                symbol_colname=None,
+                                                comment_colname=None,
+                                                name_colname=None,
+                                                horizontal_dilution_colname=None,
+                                                vertical_dilution_colname=None,
+                                                position_dilution_colname=None, 
+                                                output_file=None):
         """
         convert csv file to gpx
         lats_colname: name of the latitudes column
@@ -251,11 +278,27 @@ class Converter(object):
                               longs_colname=longs_colname,
                               times_colname=times_colname,
                               alts_colname=alts_colname,
-                              sats_colname=sats_colname,
+                              speed_colname=speed_colname,
+                              symbol_colname=symbol_colname,
+                              comment_colname=comment_colname,
+                              name_colname=name_colname,
+                              horizontal_dilution_colname=horizontal_dilution_colname,
+                              vertical_dilution_colname=vertical_dilution_colname,
+                              position_dilution_colname=position_dilution_colname, 
                               output_file=output_file)
         return True
 
-    def excel_to_gpx(self, lats_colname='latitude', longs_colname='longitude', times_colname=None, alts_colname=None, sats_colname=None, output_file=None):
+    def excel_to_gpx(self, lats_colname='latitude', longs_colname='longitude', 
+                                                    times_colname=None, 
+                                                    alts_colname=None,
+                                                    speed_colname=None,
+                                                    symbol_colname=None,
+                                                    comment_colname=None,
+                                                    name_colname=None,
+                                                    horizontal_dilution_colname=None,
+                                                    vertical_dilution_colname=None,
+                                                    position_dilution_colname=None, 
+                                                    output_file=None):
         """
         convert csv file to gpx
         lats_colname: name of the latitudes column
@@ -278,10 +321,27 @@ class Converter(object):
                               times_colname=times_colname,
                               alts_colname=alts_colname,
                               sats_colname=sats_colname,
+                              speed_colname=speed_colname,
+                              symbol_colname=symbol_colname,
+                              comment_colname=comment_colname,
+                              name_colname=name_colname,
+                              horizontal_dilution_colname=horizontal_dilution_colname,
+                              vertical_dilution_colname=vertical_dilution_colname,
+                              position_dilution_colname=position_dilution_colname, 
                               output_file=output_file)
         return True
 
-    def json_to_gpx(self, lats_colname='latitude', longs_colname='longitude', times_colname=None, alts_colname=None, sats_colname=None, output_file=None):
+    def json_to_gpx(self, lats_colname='latitude', longs_colname='longitude',
+                                                    times_colname=None, 
+                                                    alts_colname=None,
+                                                    speed_colname=None,
+                                                    symbol_colname=None,
+                                                    comment_colname=None,
+                                                    name_colname=None,
+                                                    horizontal_dilution_colname=None,
+                                                    vertical_dilution_colname=None,
+                                                    position_dilution_colname=None, 
+                                                    output_file=None):
         """
         convert csv file to gpx
         lats_colname: name of the latitudes column
@@ -301,12 +361,28 @@ class Converter(object):
                               longs_colname=longs_colname,
                               times_colname=times_colname,
                               alts_colname=alts_colname,
-                              sats_colname=sats_colname,
+                              speed_colname=speed_colname,
+                              symbol_colname=symbol_colname,
+                              comment_colname=comment_colname,
+                              name_colname=name_colname,
+                              horizontal_dilution_colname=horizontal_dilution_colname,
+                              vertical_dilution_colname=vertical_dilution_colname,
+                              position_dilution_colname=position_dilution_colname, 
                               output_file=output_file)
         return True
 
     @staticmethod
-    def convert_multi_csv_to_gpx(dirpath, lats_colname='latitude', longs_colname='longitude', times_colname=None, alts_colname=None, sats_colname=None, export_extensions=True):
+    def convert_multi_csv_to_gpx(dirpath, lats_colname='latitude', longs_colname='longitude', 
+                                                                    times_colname=None, 
+                                                                    alts_colname=None,
+                                                                    speed_colname=None,
+                                                                    symbol_colname=None,
+                                                                    comment_colname=None,
+                                                                    name_colname=None,
+                                                                    horizontal_dilution_colname=None,
+                                                                    vertical_dilution_colname=None,
+                                                                    position_dilution_colname=None, 
+                                                                    output_file=None):
         """
         convert multiple csv file from directory to gpx
         dirpath: directory path where the csv files are
@@ -324,7 +400,13 @@ class Converter(object):
                                        longs_colname=longs_colname,
                                        times_colname=times_colname,
                                        alts_colname=alts_colname,
-                                       sats_colname=sats_colname,
+                                       speed_colname=speed_colname,
+                                       symbol_colname=symbol_colname,
+                                       comment_colname=comment_colname,
+                                       name_colname=name_colname,
+                                       horizontal_dilution_colname=horizontal_dilution_colname,
+                                       vertical_dilution_colname=vertical_dilution_colname,
+                                       position_dilution_colname=position_dilution_colname, 
                                        output_file=gpx_path)
 
     @staticmethod
