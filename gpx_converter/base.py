@@ -32,20 +32,33 @@ class Converter(object):
 
         with open(self.input_file, 'r') as gpxfile:
             gpx = gpxpy.parse(gpxfile)
+            items = dir(gpx.tracks[0].segments[0].points[0].__class__)
+            items = [item for item in items if not item.startswith('__') and not callable(getattr(gpx.tracks[0].segments[0].points[0], item)) and type(item)!=list]
+            items_delete = ['extensions','gpx_10_fields','gpx_11_fields','time','longitude','latitude','elevation']
+            #items.remove('extensions')
+            #items.remove('gpx_10_fields')
+            #items.remove('gpx_11_fields')
+            for item in items.copy():
+                if item in items_delete:
+                    items.remove(item)
+            
+            items = ['time','longitude','latitude','elevation']+items
+            
+
+            for item in items:
+                print(type(getattr(gpx.tracks[0].segments[0].points[0],item)))
+            print(items)
+            gpx_data = dict((item, []) for item in items)
             for track in gpx.tracks:
                 for segment in track.segments:
                     for point in segment.points:
-                        lats.append(point.latitude)
-                        longs.append(point.longitude)
-                        times.append(point.time)
-                        alts.append(point.elevation)
-                        sats.append(point.satellites)
-                        ext.append(point.extensions)
+                        for item in items:
+                            gpx_data[item] += [getattr(point, item)]
                         if export_extensions == True:
                             for extension in point.extensions:
                                 ext_tags+=[extension.tag]
 
-            gpx_data = {times_colname: times, lats_colname: lats, longs_colname: longs, alts_colname: alts, sats_colname: sats}
+            #gpx_data = {times_colname: times, lats_colname: lats, longs_colname: longs, alts_colname: alts, sats_colname: sats}
             if export_extensions == True:
                 ext_tags=set(ext_tags)
                 extensions=dict((ext_tag, []) for ext_tag in ext_tags)
@@ -183,6 +196,7 @@ class Converter(object):
                                    alts_colname=alts_keyname,
                                    sats_colname=sats_keyname,
                                    export_extensions=export_extensions)
+
 
         df.to_json(output_file,date_format='iso')
 
