@@ -35,9 +35,8 @@ class Converter(object):
             items = dir(gpx.tracks[0].segments[0].points[0].__class__)
             items = [item for item in items if not item.startswith('__') and not callable(getattr(gpx.tracks[0].segments[0].points[0], item)) and type(item)!=list]
             items_delete = ['extensions','gpx_10_fields','gpx_11_fields','time','longitude','latitude','elevation']
-            #items.remove('extensions')
-            #items.remove('gpx_10_fields')
-            #items.remove('gpx_11_fields')
+
+            # Keep order of items and delete unecessary items
             for item in items.copy():
                 if item in items_delete:
                     items.remove(item)
@@ -58,6 +57,7 @@ class Converter(object):
                             for extension in point.extensions:
                                 ext_tags+=[extension.tag]
 
+            
             #gpx_data = {times_colname: times, lats_colname: lats, longs_colname: longs, alts_colname: alts, sats_colname: sats}
             if export_extensions == True:
                 ext_tags=set(ext_tags)
@@ -72,8 +72,8 @@ class Converter(object):
                 gpx_data = {**gpx_data, **extensions}
                                 
                             
-
-        #pd.read_xml(ext[1][1])
+        gpx_data['altitude'] = gpx_data['elevation']
+        del gpx_data['elevation']
         for column in gpx_data.copy().keys():
             if not any(gpx_data[column]):
                 del gpx_data[column]
