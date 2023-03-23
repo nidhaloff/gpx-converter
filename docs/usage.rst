@@ -1,6 +1,6 @@
 
 ======
-Usage
+Example
 ======
 
 .. code-block:: python
