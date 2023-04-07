@@ -81,7 +81,7 @@ class Converter(object):
         return gpx_data
 
     def gpx_to_dictionary(self, latitude_key="latitude", longitude_key="longitude", time_key="time", altitude_key="altitude", satellites_key="satellites",export_extensions=True):
-        return self._gpx_to_dict(lats_colname=latitude_key, longs_colname=longitude_key, times_colname=time_key, alts_colname=altitude_key, satellites_colname=satellites_key, export_extensions=export_extensions)
+        return self._gpx_to_dict(lats_colname=latitude_key, longs_colname=longitude_key, times_colname=time_key, alts_colname=altitude_key, sats_colname=satellites_key, export_extensions=export_extensions)
 
     def gpx_to_dataframe(self, lats_colname="latitude", longs_colname="longitude", times_colname="time", alts_colname="altitude", sats_colname="satellites",export_extensions=True):
         """
