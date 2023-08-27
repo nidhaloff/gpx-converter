@@ -202,7 +202,7 @@ or maybe you prefer the short version
 Links
 -----
 Check this article to know more about gpx files and how to use the gpx-converter package.
-https://medium.com/p/57da00bd36fc/edit
+https://medium.com/p/57da00bd36fc/
 
 Contributions
 --------------
